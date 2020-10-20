@@ -14,18 +14,19 @@ cd $HOME/catkin_ws/src
 # Clone coppeliasim_msgs_srvs pkg 
 git clone https://github.com/tud-cor/coppeliasim_ros_services
 
-# change to the main Catkin workspace
+# change to the root of the workspace
 cd ..
 
 # build the workspace (using catkin_tools)
  catkin build
  
 # After building, you can check if the plugin 'libsimExtRosServices.so' was successfuly created by listing the content of the devel/lib
-ls devel/lib/
+ls devel/lib | grep 
+libsimExtRosServices.so
 ```
 
 ### Running
-The generated plugin should be loaded while starting coppeliasim, this can be done by copying the plugin 'libsimExtRosServices.so' to the main directory of Coppeliasim `$HOME/CoppeliaSim`:
+The generated plugin should be loaded while starting CoppeliaSim, this can be done by copying the file 'libsimExtRosServices.so' to the main directory of CoppeliaSim (ie: `$HOME/CoppeliaSim`):
 ```
 # Copy the generated plugin to CoppeliaSim directory
 cp  $HOME/catkin_ws/devel/lib/libsimExtRosServices.so  $HOME/CoppeliaSim/
